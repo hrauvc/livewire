@@ -23,7 +23,7 @@ class ComponentChecksumManager
     public function check($checksum, $fingerprint, $memo)
     {
         ///////////////////////////////// FOR TESTING /////////////////////////////////
-        if(!hash_equals($this->generate($fingerprint, $memo), $checksum) || true) {
+        if(!hash_equals($this->generate($fingerprint, $memo), $checksum)) {
             $memoSansChildren = array_diff_key($memo, array_flip(['children']));
             \Log::error(json_encode([
                 'checksum' => $checksum,
